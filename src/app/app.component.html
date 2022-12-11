@@ -1,0 +1,64 @@
+<div class="pagina">
+  <div class="seccion mt-10">
+    <h1 class="pista">¡BIENVENIDO JON, FELICES 18!</h1>
+  </div>
+  <div class="seccion mt-10">
+    <h2 class="pista">
+      Quería tener un detalle contigo por tu cumpleaños, como no conozco aún bien tus gustos y aficiones, he tenido que
+      consultar y hemos podido llegar a algo super útil que te puede servir. Has recibido un paquete, pero resulta que
+      no puedes acceder al contenido,
+      para ello tendrás que descifrar el código que te permita abrir esa caja.
+      Como bien puedes ver, es un código de 3 digitos, los cuales podrás obtener de esta página resolviendo algunos de
+      los enigmas que te dejo más adelante.
+      Para empezar te recomiendo que intentes resolverlos con una música guay, ¿Por qué no pinchas en el botón y
+      comienzas a buscar ya? ¡Ánimo!
+    </h2>
+  </div>
+  <div class="mt-10">
+    <button mat-raised-button *ngIf="!isPlaying" (click)="play()">
+    <span style="vertical-align: super;">¡Escúchame!</span><mat-icon>play_arrow</mat-icon>
+    </button>
+    <button mat-raised-button *ngIf="isPlaying" (click)="pause()">
+      <span style="vertical-align: super;">Pausa</span><mat-icon>pause</mat-icon>
+    </button>
+  </div>  
+  <div class="seccion mt-10">    
+    <p class="pista">
+      El Gordo Goloso, es un nuevo restaurante que ha abierto en Pamplona, y con la nueva gerencia van a hacer cambios en personal y hay que calcular la facturación.
+      Para ello, es muy importante tener en cuenta que a pesar de ser Jaime Escobar el dueño, la que de verdad maneja el cotarro porque conoce bien el negocio y tiene experiencia
+      es Lucía Rajoy (no es la hija de Rajoy, pero cobra tanto como él). Jaime al ser el dueño no cobra por hora, se lleva lo que quede de beneficio del reparto que hace con el resto de 
+      trabajadores, eso si, cierra el restaurante los Lunes y trabaja todo el día para preparar la semana, además de encargarse de abrir y cerrar el local todos los días. 
+      Lucía, como máxima encargada todo poderosa, cobra a 34.50 euros la hora, encargandose de montar las mesas, recargar camaras y dar indicaciones. Además es la encarga de la caja, por eso va justo después
+      de Jaime, haciendo lo mismo justo despues del cierre de servicio de comidas a las 15:00 de la tarde y justo al terminar el servicio de cenas (sí, en este restaurante se cena muy pronto o estás jodido).
+      No olvidemos que Lucía se encarga de todo el día del Viernes que hacen servicio de menú degustación para clientes más selectos, así que este dia lo trabaja entero ella.
+      Para descansar, han contratado dos currelas más, Manolo y Carmela, que casualmente son pareja con trillizos y tienen jornada reducida. Lo que hacen es trabajar cada uno un turno, tal y como se indica
+      en el calendario. Éstos dos llevan años en la restauración y hostelería, por su experiencia y buen servicio, cobran a 21.45 euros la hora.
+      Con todo esto, deberia ser posible calcular la facturación de personal, echándole un vistazo al calendario podrás ver exactamente cuántas horas trabaja cada persona. ¡Suerte!
+    </p>
+    <img src="../assets/images/schedule.PNG">
+  </div>
+  <div class="seccion mt-10">    
+    <p class="pista">
+      ¡El mítico juego! tal vez la tortuga tenga la clave, o el conejo, o alguno de esos dos personajillos tan inocentes. O puede que ninguno de ellos, quién sabe. 
+    </p>
+    <img src="https://i.pinimg.com/originals/fc/9f/84/fc9f847e175bf9b7137d2f479861d9bf.jpg">
+  </div>
+  <div class="seccion mt-10">
+    <mat-form-field>
+      <mat-label>Código</mat-label>
+      <input matInput type="text" [(ngModel)]="codigo">
+      <button *ngIf="codigo" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>    
+  </div>
+  <div class="mt-10">
+    <button mat-raised-button (click)="check()">
+      Comprobar código
+    </button>
+  </div>
+  <div class="mt-10" *ngIf="isCheckeado">
+    <h1 *ngIf="isCorrecto">¡Código correcto!</h1>
+    <h1 *ngIf="!isCorrecto">¡Código incorrecto!</h1>
+  </div>  
+</div>
